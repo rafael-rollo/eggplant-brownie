@@ -37,11 +37,8 @@ class AllMealsViewController: UITableViewController, AddMealViewControllerDelega
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         let meal = meals[indexPath.row]
         
-        let alert = UIAlertController(title: meal.name, message: meal.details(), preferredStyle: .alert)
-        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alert.addAction(cancelButton)
-        
-        present(alert, animated: true, completion: nil)
+        Alert(controller: self)
+            .show(title: meal.name, message: meal.details())
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

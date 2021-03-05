@@ -18,6 +18,7 @@
 		351BC7BD25E9676000EF73E0 /* AllMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351BC7BC25E9675F00EF73E0 /* AllMealsViewController.swift */; };
 		35B2AFB625ED5BD100EB239C /* AddNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B2AFB425ED5BD100EB239C /* AddNewItemViewController.swift */; };
 		35B2AFB725ED5BD100EB239C /* AddNewItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35B2AFB525ED5BD100EB239C /* AddNewItemViewController.xib */; };
+		35C2011925F2ACA3006D3588 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C2011825F2ACA3006D3588 /* Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		351BC7BC25E9675F00EF73E0 /* AllMealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMealsViewController.swift; sourceTree = "<group>"; };
 		35B2AFB425ED5BD100EB239C /* AddNewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemViewController.swift; sourceTree = "<group>"; };
 		35B2AFB525ED5BD100EB239C /* AddNewItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewItemViewController.xib; sourceTree = "<group>"; };
+		35C2011825F2ACA3006D3588 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,10 +112,19 @@
 		351BC7B625E86FD500EF73E0 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				35C2011725F2AC87006D3588 /* Components */,
 				351BC79F25E81C4D00EF73E0 /* Main.storyboard */,
 				35B2AFB525ED5BD100EB239C /* AddNewItemViewController.xib */,
 			);
 			path = Interface;
+			sourceTree = "<group>";
+		};
+		35C2011725F2AC87006D3588 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				35C2011825F2ACA3006D3588 /* Alert.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +204,7 @@
 				351BC79E25E81C4D00EF73E0 /* AddMealViewController.swift in Sources */,
 				351BC79A25E81C4D00EF73E0 /* AppDelegate.swift in Sources */,
 				351BC7BD25E9676000EF73E0 /* AllMealsViewController.swift in Sources */,
+				35C2011925F2ACA3006D3588 /* Alert.swift in Sources */,
 				351BC79C25E81C4D00EF73E0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
