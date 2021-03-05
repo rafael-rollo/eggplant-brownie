@@ -16,6 +16,7 @@ class Meal: NSObject {
     init(name: String, happinessLevel: Int, items: Array<Item> = []) {
         self.name = name
         self.happinessLevel = happinessLevel
+        self.items = items
     }
     
     func addItem(item: Item) {
@@ -23,10 +24,14 @@ class Meal: NSObject {
     }
     
     func totalCalories() -> Double {
-        self.items
+        return self.items
             .map { $0.calories }
             .reduce(0, { current, next in
                 current + next
             })
+    }
+    
+    func details() -> String {
+        return "Happiness level: \(self.happinessLevel)\nTotal calories: \(self.totalCalories()) kcal"
     }
 }

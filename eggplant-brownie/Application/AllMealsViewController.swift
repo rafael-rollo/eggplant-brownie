@@ -20,10 +20,28 @@ class AllMealsViewController: UITableViewController, AddMealViewControllerDelega
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = self.meals[indexPath.row].name
+       let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+       cell.textLabel?.text = self.meals[indexPath.row].name
+       
+       let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(showMealDetails(_:)))
+       cell.addGestureRecognizer(longPressGesture)
+       
+       return cell
+    }
+    
+    @objc func showMealDetails(_ gesture: UILongPressGestureRecognizer) {
+        if gesture.state != .began { return }
         
-        return cell
+        let cell = gesture.view as! UITableViewCell
+        
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        let meal = meals[indexPath.row]
+        
+        let alert = UIAlertController(title: meal.name, message: meal.details(), preferredStyle: .alert)
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelButton)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
