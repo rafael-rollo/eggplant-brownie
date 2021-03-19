@@ -23,4 +23,8 @@ class Alert {
         
         controller.present(alert, animated: true, completion: nil)
     }
+    
+    func show(message: String) {
+        self.show(title: nil, message: message)
+    }
 }
