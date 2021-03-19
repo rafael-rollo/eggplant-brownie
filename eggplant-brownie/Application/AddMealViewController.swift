@@ -79,21 +79,29 @@ class AddMealViewController: UIViewController, UITableViewDataSource, UITableVie
     
     // MARK: IBActions
     
-    @IBAction func addMeal(_ sender: Any) {
+    func getMealFromForm() -> Meal? {
         guard let mealName = self.mealNameTextField?.text,
-              let happinessLevelAsString = self.happinessLevelTextField?.text else {
-            return
+              let happinessLevelAsString = self.happinessLevelTextField?.text else { return nil }
+        
+        if mealName.isEmpty || happinessLevelAsString.isEmpty {
+            Alert(controller: self).show(message: "Meal name or happiness level is invalid")
+            return nil
         }
         
         guard let happinessLevel = Int(happinessLevelAsString) else {
-            print("Invalid happiness level value")
-            return
+            Alert(controller: self).show(message: "Invalid value for happiness level")
+            return nil
         }
         
-        let meal = Meal(name: mealName, happinessLevel: happinessLevel, items: self.selectedItems)
+        return Meal(name: mealName, happinessLevel: happinessLevel, items: self.selectedItems)
+    }
     
-        print("The user ates \(meal.name) and got a happiness level of \(meal.happinessLevel)")
-        
+    @IBAction func addMeal(_ sender: Any) {
+        guard let meal = self.getMealFromForm() else {
+            print("Could not possible to retrieve meal data. Aborted add operation!")
+            return
+        }
+    
         self.delegate?.updateMealListWith(meal)
         navigationController?.popViewController(animated: true)
     }
