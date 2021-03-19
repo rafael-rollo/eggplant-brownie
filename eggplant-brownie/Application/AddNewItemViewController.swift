@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AddNewItemViewControllerDelegate {
-    func updateItemsList(with item: Item)
+    func updateItemsListWith(_ item: Item)
 }
 
 class AddNewItemViewController: UIViewController {
@@ -42,8 +42,8 @@ class AddNewItemViewController: UIViewController {
     // MARK: IBActions
     
     @IBAction func addItem(_ sender: Any) {
-        guard let itemName = itemNameTextField?.text,
-              let itemCaloriesAsString = itemCaloriesTextField?.text else { return }
+        guard let itemName = self.itemNameTextField?.text,
+              let itemCaloriesAsString = self.itemCaloriesTextField?.text else { return }
         
         guard let itemCalories = Double(itemCaloriesAsString) else {
             print("Invalid caloried value!")
@@ -51,7 +51,7 @@ class AddNewItemViewController: UIViewController {
         }
         
         let newItem = Item(name: itemName, calories: itemCalories)
-        delegate?.updateItemsList(with: newItem)
+        self.delegate?.updateItemsListWith(newItem)
         
         navigationController?.popViewController(animated: true)
     }

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AddMealViewControllerDelegate {
-    func updateTable(with meal: Meal)
+    func updateMealListWith(_ meal: Meal)
 }
 
 class AddMealViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddNewItemViewControllerDelegate {
@@ -16,7 +16,6 @@ class AddMealViewController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: Attributes
     
     var delegate: AddMealViewControllerDelegate?
-    
     var items: [Item] = [
         Item(name: "Bread", calories: 120),
         Item(name: "Toast", calories: 100),
@@ -38,26 +37,23 @@ class AddMealViewController: UIViewController, UITableViewDataSource, UITableVie
         navigationItem.rightBarButtonItem = navigationButton
     }
     
+    // MARK: Navigation links and controls
+    
     @objc func navigatoToNewItemScene() {
         let addNewItemViewController = AddNewItemViewController(delegate: self)
         navigationController?.pushViewController(addNewItemViewController, animated: true)
     }
-    
-    func updateItemsList(with item: Item) {
-        items.append(item);
-        itemsTableView.reloadData()
-    }
-    
+
     // MARK: UITableViewDataSource methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return self.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = items[indexPath.row].name
+        cell.textLabel?.text = self.items[indexPath.row].name
         
         return cell
     }
@@ -67,25 +63,25 @@ class AddMealViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
         
-        let selectedItem = items[indexPath.row]
+        let selectedItem = self.items[indexPath.row]
         
         if cell.accessoryType == .none {
             cell.accessoryType = .checkmark
-            selectedItems.append(selectedItem)
+            self.selectedItems.append(selectedItem)
 
         } else {
             cell.accessoryType = .none
             
-            guard let indexOfSelectedItem = selectedItems.firstIndex(of: selectedItem) else { return }
-            selectedItems.remove(at: indexOfSelectedItem)
+            guard let indexOfSelectedItem = self.selectedItems.firstIndex(of: selectedItem) else { return }
+            self.selectedItems.remove(at: indexOfSelectedItem)
         }
     }
     
     // MARK: IBActions
     
     @IBAction func addMeal(_ sender: Any) {
-        guard let mealName = mealNameTextField?.text,
-              let happinessLevelAsString = happinessLevelTextField?.text else {
+        guard let mealName = self.mealNameTextField?.text,
+              let happinessLevelAsString = self.happinessLevelTextField?.text else {
             return
         }
         
@@ -94,12 +90,19 @@ class AddMealViewController: UIViewController, UITableViewDataSource, UITableVie
             return
         }
         
-        let meal = Meal(name: mealName, happinessLevel: happinessLevel, items: selectedItems)
+        let meal = Meal(name: mealName, happinessLevel: happinessLevel, items: self.selectedItems)
     
         print("The user ates \(meal.name) and got a happiness level of \(meal.happinessLevel)")
         
-        delegate?.updateTable(with: meal)
+        self.delegate?.updateMealListWith(meal)
         navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: View methods
+    
+    func updateItemsListWith(_ item: Item) {
+        self.items.append(item);
+        self.itemsTableView.reloadData()
     }
 }
 
