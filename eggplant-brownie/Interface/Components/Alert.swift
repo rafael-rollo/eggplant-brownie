@@ -10,16 +10,23 @@ import UIKit
 class Alert {
     
     let controller: UIViewController
+    let actions: [UIAlertAction]
     
-    init(controller: UIViewController) {
+    init(controller: UIViewController, actions: [UIAlertAction] = []) {
         self.controller = controller
+        
+        let defaultActions = [
+            UIAlertAction(title: "Cancel", style: .cancel)
+        ]
+        self.actions = defaultActions + actions
     }
     
     func show(title: String?, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alert.addAction(cancelButton)
+        actions.forEach { action in
+            alert.addAction(action)
+        }
         
         controller.present(alert, animated: true, completion: nil)
     }

@@ -16,6 +16,7 @@
 		351BC7B125E86F9200EF73E0 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351BC7B025E86F9200EF73E0 /* Meal.swift */; };
 		351BC7B825E8701A00EF73E0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351BC7B725E8701A00EF73E0 /* Item.swift */; };
 		351BC7BD25E9676000EF73E0 /* AllMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351BC7BC25E9675F00EF73E0 /* AllMealsViewController.swift */; };
+		35899ACD260536BE00924070 /* MealInfoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35899ACC260536BD00924070 /* MealInfoAlert.swift */; };
 		35B2AFB625ED5BD100EB239C /* AddNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B2AFB425ED5BD100EB239C /* AddNewItemViewController.swift */; };
 		35B2AFB725ED5BD100EB239C /* AddNewItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35B2AFB525ED5BD100EB239C /* AddNewItemViewController.xib */; };
 		35C2011925F2ACA3006D3588 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C2011825F2ACA3006D3588 /* Alert.swift */; };
@@ -34,6 +35,7 @@
 		351BC7B025E86F9200EF73E0 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		351BC7B725E8701A00EF73E0 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		351BC7BC25E9675F00EF73E0 /* AllMealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMealsViewController.swift; sourceTree = "<group>"; };
+		35899ACC260536BD00924070 /* MealInfoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInfoAlert.swift; sourceTree = "<group>"; };
 		35B2AFB425ED5BD100EB239C /* AddNewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemViewController.swift; sourceTree = "<group>"; };
 		35B2AFB525ED5BD100EB239C /* AddNewItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewItemViewController.xib; sourceTree = "<group>"; };
 		35C2011825F2ACA3006D3588 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				35C2011825F2ACA3006D3588 /* Alert.swift */,
+				35899ACC260536BD00924070 /* MealInfoAlert.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				351BC7B825E8701A00EF73E0 /* Item.swift in Sources */,
+				35899ACD260536BE00924070 /* MealInfoAlert.swift in Sources */,
 				35B2AFB625ED5BD100EB239C /* AddNewItemViewController.swift in Sources */,
 				351BC7B125E86F9200EF73E0 /* Meal.swift in Sources */,
 				351BC79E25E81C4D00EF73E0 /* AddMealViewController.swift in Sources */,

@@ -51,6 +51,11 @@ class AllMealsViewController: UITableViewController, AddMealViewControllerDelega
         self.tableView.reloadData()
     }
     
+    func removeMeal(at index: Int) {
+        self.meals.remove(at: index)
+        self.tableView.reloadData()
+    }
+    
     @objc func showMealDetails(_ gesture: UILongPressGestureRecognizer) {
         if gesture.state != .began { return }
         
@@ -59,7 +64,9 @@ class AllMealsViewController: UITableViewController, AddMealViewControllerDelega
         guard let indexPath = self.tableView.indexPath(for: cell) else { return }
         let meal = self.meals[indexPath.row]
         
-        Alert(controller: self)
-            .show(title: meal.name, message: meal.details())
+        let alert = MealInfoAlert(controller: self, removeHandler: { action in
+            self.removeMeal(at: indexPath.row)
+        })
+        alert.show(title: meal.name, message: meal.details())
     }
 }
