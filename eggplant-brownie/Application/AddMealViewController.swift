@@ -16,7 +16,7 @@ class AddMealViewController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: Attributes
     
     var delegate: AddMealViewControllerDelegate?
-    var items: [Item] = [];
+    var items: Array<Item> = [];
     var selectedItems: [Item] = []
 
     // MARK: IBOutlets

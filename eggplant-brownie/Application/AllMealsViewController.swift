@@ -11,14 +11,11 @@ class AllMealsViewController: UITableViewController, AddMealViewControllerDelega
     
     // MARK: Attributes
     
-    var meals = [
-        Meal(name: "Vegan Burguer", happinessLevel: 3),
-        Meal(name: "Falafel", happinessLevel: 4),
-        Meal(name: "Jacalhau", happinessLevel: 2)
-    ];
+    var meals: Array<Meal> = [];
     
     // MARK: View lifecycle
-    override func viewDidLoad() {        
+    
+    override func viewDidLoad() {
         let loadedMeals = Meals().all()
         self.meals = loadedMeals
     }
