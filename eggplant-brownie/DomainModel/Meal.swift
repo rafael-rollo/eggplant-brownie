@@ -5,9 +5,9 @@
 //  Created by Rafael Rollo on 25/02/21.
 //
 
-import UIKit
+import Foundation
 
-class Meal: NSObject {
+class Meal: NSObject, NSCoding {
 
     let name: String
     let happinessLevel: Int
@@ -18,6 +18,19 @@ class Meal: NSObject {
         self.happinessLevel = happinessLevel
         self.items = items
     }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(self.name, forKey: "name")
+        coder.encode(self.happinessLevel, forKey: "happinessLevel")
+        coder.encode(self.items, forKey: "items")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.name = coder.decodeObject(forKey: "name") as! String
+        self.happinessLevel = coder.decodeInteger(forKey: "happinessLevel")
+        self.items = coder.decodeObject(forKey: "items") as! Array<Item>
+    }
+    
     
     func addItem(item: Item) {
         self.items.append(item)

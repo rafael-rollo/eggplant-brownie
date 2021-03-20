@@ -16,6 +16,8 @@
 		351BC7B125E86F9200EF73E0 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351BC7B025E86F9200EF73E0 /* Meal.swift */; };
 		351BC7B825E8701A00EF73E0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351BC7B725E8701A00EF73E0 /* Item.swift */; };
 		351BC7BD25E9676000EF73E0 /* AllMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351BC7BC25E9675F00EF73E0 /* AllMealsViewController.swift */; };
+		356CFFA626057E22007BB899 /* Meals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356CFFA526057E22007BB899 /* Meals.swift */; };
+		356CFFAB260583E3007BB899 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356CFFAA260583E3007BB899 /* Items.swift */; };
 		35899ACD260536BE00924070 /* MealInfoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35899ACC260536BD00924070 /* MealInfoAlert.swift */; };
 		35B2AFB625ED5BD100EB239C /* AddNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B2AFB425ED5BD100EB239C /* AddNewItemViewController.swift */; };
 		35B2AFB725ED5BD100EB239C /* AddNewItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35B2AFB525ED5BD100EB239C /* AddNewItemViewController.xib */; };
@@ -35,6 +37,8 @@
 		351BC7B025E86F9200EF73E0 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		351BC7B725E8701A00EF73E0 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		351BC7BC25E9675F00EF73E0 /* AllMealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMealsViewController.swift; sourceTree = "<group>"; };
+		356CFFA526057E22007BB899 /* Meals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meals.swift; sourceTree = "<group>"; };
+		356CFFAA260583E3007BB899 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		35899ACC260536BD00924070 /* MealInfoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInfoAlert.swift; sourceTree = "<group>"; };
 		35B2AFB425ED5BD100EB239C /* AddNewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemViewController.swift; sourceTree = "<group>"; };
 		35B2AFB525ED5BD100EB239C /* AddNewItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewItemViewController.xib; sourceTree = "<group>"; };
@@ -74,7 +78,7 @@
 			children = (
 				351BC7B625E86FD500EF73E0 /* Interface */,
 				351BC7B425E86FAE00EF73E0 /* Application */,
-				351BC7B325E86FA400EF73E0 /* Domain */,
+				351BC7B325E86FA400EF73E0 /* DomainModel */,
 				351BC7B525E86FCC00EF73E0 /* Infra */,
 				351BC79925E81C4D00EF73E0 /* AppDelegate.swift */,
 				351BC79B25E81C4D00EF73E0 /* SceneDelegate.swift */,
@@ -85,13 +89,15 @@
 			path = "eggplant-brownie";
 			sourceTree = "<group>";
 		};
-		351BC7B325E86FA400EF73E0 /* Domain */ = {
+		351BC7B325E86FA400EF73E0 /* DomainModel */ = {
 			isa = PBXGroup;
 			children = (
+				356CFFA526057E22007BB899 /* Meals.swift */,
 				351BC7B025E86F9200EF73E0 /* Meal.swift */,
 				351BC7B725E8701A00EF73E0 /* Item.swift */,
+				356CFFAA260583E3007BB899 /* Items.swift */,
 			);
-			path = Domain;
+			path = DomainModel;
 			sourceTree = "<group>";
 		};
 		351BC7B425E86FAE00EF73E0 /* Application */ = {
@@ -205,6 +211,8 @@
 				35899ACD260536BE00924070 /* MealInfoAlert.swift in Sources */,
 				35B2AFB625ED5BD100EB239C /* AddNewItemViewController.swift in Sources */,
 				351BC7B125E86F9200EF73E0 /* Meal.swift in Sources */,
+				356CFFA626057E22007BB899 /* Meals.swift in Sources */,
+				356CFFAB260583E3007BB899 /* Items.swift in Sources */,
 				351BC79E25E81C4D00EF73E0 /* AddMealViewController.swift in Sources */,
 				351BC79A25E81C4D00EF73E0 /* AppDelegate.swift in Sources */,
 				351BC7BD25E9676000EF73E0 /* AllMealsViewController.swift in Sources */,

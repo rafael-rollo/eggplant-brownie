@@ -16,12 +16,7 @@ class AddMealViewController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: Attributes
     
     var delegate: AddMealViewControllerDelegate?
-    var items: [Item] = [
-        Item(name: "Bread", calories: 120),
-        Item(name: "Toast", calories: 100),
-        Item(name: "Cheese", calories: 70),
-        Item(name: "Ham", calories: 92)
-    ];
+    var items: [Item] = [];
     var selectedItems: [Item] = []
 
     // MARK: IBOutlets
@@ -35,6 +30,8 @@ class AddMealViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         let navigationButton = UIBarButtonItem(title: "Add Item", style: .plain, target: self, action: #selector(navigatoToNewItemScene))
         navigationItem.rightBarButtonItem = navigationButton
+        
+        self.items = Items().all()
     }
     
     // MARK: Navigation links and controls
@@ -101,7 +98,7 @@ class AddMealViewController: UIViewController, UITableViewDataSource, UITableVie
             print("Could not possible to retrieve meal data. Aborted add operation!")
             return
         }
-    
+        
         self.delegate?.updateMealListWith(meal)
         navigationController?.popViewController(animated: true)
     }
@@ -111,6 +108,8 @@ class AddMealViewController: UIViewController, UITableViewDataSource, UITableVie
     func updateItemsListWith(_ item: Item) {
         self.items.append(item);
         self.itemsTableView.reloadData()
+        
+        Items().saveAll(self.items)
     }
 }
 

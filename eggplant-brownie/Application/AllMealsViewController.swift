@@ -17,6 +17,12 @@ class AllMealsViewController: UITableViewController, AddMealViewControllerDelega
         Meal(name: "Jacalhau", happinessLevel: 2)
     ];
     
+    // MARK: View lifecycle
+    override func viewDidLoad() {        
+        let loadedMeals = Meals().all()
+        self.meals = loadedMeals
+    }
+    
     // MARK: UITableViewController implementations
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,6 +55,8 @@ class AllMealsViewController: UITableViewController, AddMealViewControllerDelega
     func updateMealListWith(_ meal: Meal) {
         self.meals.append(meal)
         self.tableView.reloadData()
+        
+        Meals().saveAll(self.meals)
     }
     
     func removeMeal(at index: Int) {
