@@ -33,7 +33,6 @@
 		351BC7A225E81C5000EF73E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		351BC7A525E81C5000EF73E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		351BC7A725E81C5000EF73E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		351BC7AE25E8255900EF73E0 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = "../../../Library/Autosave Information/MyPlayground.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		351BC7B025E86F9200EF73E0 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		351BC7B725E8701A00EF73E0 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		351BC7BC25E9675F00EF73E0 /* AllMealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMealsViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +58,6 @@
 		351BC78D25E81C4D00EF73E0 = {
 			isa = PBXGroup;
 			children = (
-				351BC7AE25E8255900EF73E0 /* MyPlayground.playground */,
 				351BC79825E81C4D00EF73E0 /* eggplant-brownie */,
 				351BC79725E81C4D00EF73E0 /* Products */,
 			);
@@ -79,7 +77,6 @@
 				351BC7B625E86FD500EF73E0 /* Interface */,
 				351BC7B425E86FAE00EF73E0 /* Application */,
 				351BC7B325E86FA400EF73E0 /* DomainModel */,
-				351BC7B525E86FCC00EF73E0 /* Infra */,
 				351BC79925E81C4D00EF73E0 /* AppDelegate.swift */,
 				351BC79B25E81C4D00EF73E0 /* SceneDelegate.swift */,
 				351BC7A225E81C5000EF73E0 /* Assets.xcassets */,
@@ -108,13 +105,6 @@
 				351BC7BC25E9675F00EF73E0 /* AllMealsViewController.swift */,
 			);
 			path = Application;
-			sourceTree = "<group>";
-		};
-		351BC7B525E86FCC00EF73E0 /* Infra */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Infra;
 			sourceTree = "<group>";
 		};
 		351BC7B625E86FD500EF73E0 /* Interface */ = {
