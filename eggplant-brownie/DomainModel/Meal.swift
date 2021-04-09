@@ -7,7 +7,18 @@
 
 import Foundation
 
+struct MealPropertyKey {
+    static let name = "name"
+    static let happinessLevel = "happinessLevel"
+    static let items = "items"
+}
+
 class Meal: NSObject, NSCoding {
+    
+    static let ArchiveURL = FileManager()
+        .urls(for: .documentDirectory, in: .userDomainMask)
+        .first!
+        .appendingPathComponent("meals")
 
     let name: String
     let happinessLevel: Int
@@ -20,15 +31,17 @@ class Meal: NSObject, NSCoding {
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(self.name, forKey: "name")
-        coder.encode(self.happinessLevel, forKey: "happinessLevel")
-        coder.encode(self.items, forKey: "items")
+        coder.encode(name, forKey: MealPropertyKey.name)
+        coder.encode(happinessLevel, forKey: MealPropertyKey.happinessLevel)
+        coder.encode(items, forKey: MealPropertyKey.items)
     }
     
-    required init?(coder: NSCoder) {
-        self.name = coder.decodeObject(forKey: "name") as! String
-        self.happinessLevel = coder.decodeInteger(forKey: "happinessLevel")
-        self.items = coder.decodeObject(forKey: "items") as! Array<Item>
+    required convenience init?(coder: NSCoder) {
+        let name = coder.decodeObject(forKey: MealPropertyKey.name) as! String
+        let happinessLevel = coder.decodeInteger(forKey: MealPropertyKey.happinessLevel)
+        let items = coder.decodeObject(forKey: MealPropertyKey.items) as! Array<Item>
+        
+        self.init(name: name, happinessLevel: happinessLevel, items: items)
     }
     
     

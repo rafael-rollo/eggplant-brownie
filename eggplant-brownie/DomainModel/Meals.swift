@@ -6,42 +6,31 @@
 //
 
 import Foundation
+import os.log
 
 class Meals: NSObject {
     
-    static let fileName: String = "meals"
-    
-    private func getFilePath() -> URL? {
-        guard let appDocumentsDirectory = FileManager.default
-                .urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-        
-        let mealsFilePath = appDocumentsDirectory.appendingPathComponent(Meals.fileName)
-        return mealsFilePath
-    }
-    
     func all() -> Array<Meal> {
-        guard let mealsFilePath = self.getFilePath() else { return [] }
-        
         do {
-            let fileData = try Data(contentsOf: mealsFilePath)
+            let fileData = try Data(contentsOf: Meal.ArchiveURL)
             guard let loadedMeals = try NSKeyedUnarchiver
                     .unarchiveTopLevelObjectWithData(fileData) as? Array<Meal> else { return [] }
             
             return loadedMeals
         } catch {
-            print(error.localizedDescription)
+            os_log("Failed to load meals...", log: OSLog.default, type: .error)
             return []
         }
     }
     
     func saveAll(_ meals: Array<Meal>) {
-        guard let mealsFilePath = self.getFilePath() else { return }
-        
         do {
             let mealData = try NSKeyedArchiver.archivedData(withRootObject: meals, requiringSecureCoding: false)
-            try mealData.write(to: mealsFilePath)
+            
+            try mealData.write(to: Meal.ArchiveURL)
+            os_log("Meals successfully saved.", log: OSLog.default, type: .debug)
         } catch {
-            print(error.localizedDescription)
+            os_log("Failed to save meals...", log: OSLog.default, type: .error)
         }
     }
 }
