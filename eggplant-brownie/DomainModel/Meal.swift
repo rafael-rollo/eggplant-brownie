@@ -58,6 +58,9 @@ class Meal: NSObject, NSCoding {
     }
     
     func details() -> String {
-        return "Happiness level: \(self.happinessLevel)\nTotal calories: \(self.totalCalories()) kcal"
+        return """
+            Happiness level: \(self.happinessLevel)
+            Total calories: \(self.totalCalories()) kcal
+        """
     }
 }
